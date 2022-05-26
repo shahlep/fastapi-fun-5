@@ -6,7 +6,7 @@ import schemas as _schemas
 
 
 class User(BaseModel):
-    name: str= Field(example="test")
+    name: str = Field(example="test")
     email: str
 
     class Config:
@@ -60,6 +60,7 @@ def event(event: Event):
 def login(username: str, password: str):
     return {'username': username, 'password': password}
 
+
 @app.post('/product')
-def add():
-    pass
+def add(request: _schemas.Product):
+    return request
