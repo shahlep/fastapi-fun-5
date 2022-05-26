@@ -20,6 +20,6 @@ def admin():
     return f"welcome to admin page"
 
 
-@app.post('/adduser')
+@app.post("/adduser")
 def add_user(profile: Profile):
-    return {"data":profile}
+    return {"data": profile}
