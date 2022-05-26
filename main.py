@@ -8,6 +8,11 @@ def index():
     return f"Hello World!"
 
 
-@app.get("/property/{id}")
-def property(id: int):
-    return f"property page based on given {id}"
+@app.get('/user/admin')
+def admin():
+    return f'welcome to admin page'
+
+
+@app.get('/user/{username}')
+def user(username: str):
+    return f'this page is for user {username}'
