@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from uuid import UUID
+from datetime import date, datetime, timedelta, time
 
 
 class User(BaseModel):
@@ -21,6 +23,15 @@ class Product(BaseModel):
     price: int = Field(title="Price of the product", gt=2)
 
 
+class Event(BaseModel):
+    event_id: UUID
+    start_date: date
+    start_time: datetime
+    end_time: datetime
+    repeat_time: date
+    execute_after: timedelta
+
+
 app = FastAPI()
 
 
@@ -37,3 +48,8 @@ def admin():
 @app.post("/purchase")
 def purchase(user: User, product: Product):
     return {"user": user, "product": product}
+
+
+@app.post('/event')
+def event(event: Event):
+    return event
