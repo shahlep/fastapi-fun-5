@@ -5,7 +5,7 @@ from datetime import date, datetime, timedelta, time
 
 
 class User(BaseModel):
-    name: str = Field(example="test")
+    name: str= Field(example="test")
     email: str
 
     class Config:
