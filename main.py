@@ -10,13 +10,7 @@ class User(BaseModel):
     email: str
 
     class Config:
-        schema_extra = {
-            "example":
-                {
-                    "name": "test",
-                    "email": "test@example.com"
-                }
-        }
+        schema_extra = {"example": {"name": "test", "email": "test@example.com"}}
 
 
 class Product(BaseModel):
@@ -51,16 +45,16 @@ def purchase(user: User, product: Product):
     return {"user": user, "product": product}
 
 
-@app.post('/event')
+@app.post("/event")
 def event(event: Event):
     return event
 
 
-@app.post('/login')
+@app.post("/login")
 def login(username: str, password: str):
-    return {'username': username, 'password': password}
+    return {"username": username, "password": password}
 
 
-@app.post('/product')
+@app.post("/product")
 def add(request: _schemas.Product):
     return request
