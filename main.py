@@ -1,7 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Form
 from pydantic import BaseModel, Field
 from uuid import UUID
 from datetime import date, datetime, timedelta, time
+
 
 
 class User(BaseModel):
@@ -53,3 +54,8 @@ def purchase(user: User, product: Product):
 @app.post('/event')
 def event(event: Event):
     return event
+
+
+@app.post('/login')
+def login(username: str = Form(...), pasword: str = Form(...)):
+    return {'username': username}
