@@ -2,6 +2,7 @@ from fastapi import FastAPI, Form
 from pydantic import BaseModel, Field
 from uuid import UUID
 from datetime import date, datetime, timedelta, time
+import schemas as _schemas
 
 
 class User(BaseModel):
@@ -58,3 +59,7 @@ def event(event: Event):
 @app.post('/login')
 def login(username: str, password: str):
     return {'username': username, 'password': password}
+
+@app.post('/product')
+def add():
+    pass
