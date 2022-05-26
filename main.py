@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 
 class User(BaseModel):
-    name: str
+    name: str = Field(example="test")
     email: str
 
     class Config:
