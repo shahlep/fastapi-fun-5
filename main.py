@@ -19,5 +19,5 @@ def user(username: str):
 
 
 @app.get('/product')
-def product(id:int, price:float):
+def product(id: int = 1, price: float = 10.0):
     return f'product with an id: {id} and price: {price}'
