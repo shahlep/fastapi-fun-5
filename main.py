@@ -16,3 +16,8 @@ def admin():
 @app.get('/user/{username}')
 def user(username: str):
     return f'this page is for user {username}'
+
+
+@app.get('/product')
+def product(id:int, price:float):
+    return f'product with an id: {id} and price: {price}'
