@@ -4,7 +4,6 @@ from uuid import UUID
 from datetime import date, datetime, timedelta, time
 
 
-
 class User(BaseModel):
     name: str = Field(example="test")
     email: str
@@ -57,5 +56,5 @@ def event(event: Event):
 
 
 @app.post('/login')
-def login(username: str = Form(...), pasword: str = Form(...)):
-    return {'username': username}
+def login(username: str, password: str):
+    return {'username': username, 'password': password}
