@@ -34,7 +34,6 @@ _models.Base.metadata.create_all(bind=_database.engine)
 app = FastAPI()
 
 
-
 @app.get("/")
 def index():
     return f"Hello World!"
