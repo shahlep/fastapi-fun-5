@@ -6,6 +6,15 @@ class User(BaseModel):
     name: str
     email: str
 
+    class Config:
+        schema_extra = {
+            "example":
+                {
+                    "name": "test",
+                    "email": "test@example.com"
+                }
+        }
+
 
 class Product(BaseModel):
     name: str
