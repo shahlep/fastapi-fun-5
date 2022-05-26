@@ -3,6 +3,8 @@ from pydantic import BaseModel, Field
 from uuid import UUID
 from datetime import date, datetime, timedelta, time
 import schemas as _schemas
+import models as _models
+import database as _database
 
 
 class User(BaseModel):
@@ -27,7 +29,10 @@ class Event(BaseModel):
     execute_after: timedelta
 
 
+_database.get_db()
+_models.Base.metadata.create_all(bind=_database.engine)
 app = FastAPI()
+
 
 
 @app.get("/")
