@@ -2,9 +2,14 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 
-class Profile(BaseModel):
+class User(BaseModel):
     name: str
     email: str
+
+
+class Product(BaseModel):
+    name: str
+    price: int
 
 
 app = FastAPI()
@@ -20,6 +25,6 @@ def admin():
     return f"welcome to admin page"
 
 
-@app.post("/adduser")
-def add_user(profile: Profile):
-    return {"data": profile}
+@app.post("/purchase")
+def purchase(user:User, product:Product):
+    return {'user': user,'product':product}
